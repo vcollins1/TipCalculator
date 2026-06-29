@@ -1,0 +1,43 @@
+﻿@page "/"
+@using BlazorTipCalculator.Components
+
+<PageTitle>TipCalculator</PageTitle>
+
+<header>
+    <img src="img/logo.svg" alt="logo" class="logo"/>
+</header>
+
+<main class="content">
+    <div class="tip-calculator">
+        <TipInput LabelText="Bill" LabelImg="img/icon-dollar.svg" @bind-Value="BillAmount"/>
+        <TipSelector @bind-SelectedPercentage="TipPercentage" />
+        <TipInput LabelText="Number of People" LabelImg="img/icon-person.svg" @bind-Value="NumberOfPeople"/>
+        <TipDisplay 
+            TipPerPerson="TipPerPerson"
+            TotalTip="TotalTip" 
+            OnReset="@(ResetInputs)"/>
+    </div>
+</main>
+
+@code {
+    private double BillAmount { get; set; }
+    private double NumberOfPeople { get; set; }
+    private double TipPercentage { get; set; }
+
+    private double TotalTip =>
+        BillAmount > 0 && NumberOfPeople > 0 && TipPercentage > 0
+            ? BillAmount * TipPercentage
+            : 0;
+
+    private double TipPerPerson =>
+        NumberOfPeople > 0
+            ? TotalTip / NumberOfPeople
+            : 0;
+
+    private void ResetInputs()
+    {
+        BillAmount = 0;
+        NumberOfPeople = 0;
+        TipPercentage = 0;
+    }
+}

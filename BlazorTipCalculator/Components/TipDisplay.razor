@@ -1,0 +1,21 @@
+@using BlazorTipCalculator.Components
+
+<div class="tip-display">
+    <div class="tip-status">
+        <span>Tip Amount<span class="per">/per person</span></span>
+        <div class="amount">$@TipPerPerson.ToString("0.00")</div>
+    </div>
+    
+    <div class="tip-status">
+        <span>Total</span>
+        <div class="amount">$@TotalTip.ToString("0.00")</div>
+    </div>
+    
+    <button class="reset-btn" @onclick="OnReset">RESET</button>
+</div>
+
+@code {
+    [Parameter] public double TipPerPerson { get; set; }
+    [Parameter] public double TotalTip { get; set; }
+    [Parameter] public EventCallback OnReset { get; set; }
+}

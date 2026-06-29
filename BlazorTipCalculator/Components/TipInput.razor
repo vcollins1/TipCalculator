@@ -1,0 +1,25 @@
+
+
+<label class="tip-input">
+    <span class="tip-input__label">@LabelText</span>
+    <div class="tip-input__data">
+        <img src=@LabelImg alt="input image">
+        <input type="number" value="@Value" @oninput="HandleInput" />
+    </div>
+</label>
+
+@code {
+    [Parameter] public string LabelText { get; set; } = "";
+    [Parameter] public string LabelImg { get; set; } = "";
+    
+    [Parameter] public double Value { get; set; }
+    [Parameter] public EventCallback<double> ValueChanged { get; set; }
+
+    private async Task HandleInput(ChangeEventArgs e)
+    {
+        if (double.TryParse(e.Value?.ToString(), out var value))
+        {
+            await ValueChanged.InvokeAsync(value);
+        }
+    }
+}

@@ -1,0 +1,43 @@
+.tip-display {
+    background-color: #00474B;
+    color: #fff;
+    padding: 24px;
+    border-radius: 15px;
+}
+
+.tip-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:first-child {
+        margin-bottom: 20px;
+    }
+}
+
+.per {
+    display:  block;
+    font-size: 13px;
+    color: #7F9D9F;
+}
+
+.amount {
+    color: #26C2AE;
+    font-size: 2rem;
+}
+
+.reset-btn {
+    background-color: #26C2AE;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    color: #00474B;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    
+    &:hover {
+        background-color: #9FE8DF;
+        cursor: pointer;
+    }
+}

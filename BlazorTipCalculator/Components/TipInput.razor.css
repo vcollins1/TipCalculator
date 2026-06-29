@@ -1,0 +1,36 @@
+.tip-input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #5E7A7D;
+}
+
+.tip-input__data {
+    display: flex;
+    align-items: center;
+    background-color: #F3F9FA;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.tip-input__data input {
+    border: none;
+    text-align: right;
+    background-color: transparent;
+    width: 100%;
+    font-size: 1.5rem;
+    color: #00474B;
+    font-family: inherit;
+
+    &:focus, &:active {
+        outline: none;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}

@@ -1,0 +1,26 @@
+
+
+<div>
+    <h2 class="tip-selector__title">Select Tip %</h2>
+
+    <div class="tip-selector__grid">
+        @foreach (var percentage in  Percentages)
+        {
+            <TipButton 
+                ButtonText=@($"{percentage * 100.0:0}%") 
+                OnClick="@(() => SelectPercentage(percentage))"
+                IsSelected="@(Math.Abs(SelectedPercentage - percentage) < 0.001)"/>
+        }
+    </div>
+</div>
+
+@code {
+    private double[] Percentages = { 0.05, 0.1, 0.15, 0.25, 0.50 };
+    [Parameter] public double SelectedPercentage { get; set; }
+    [Parameter] public EventCallback<double> SelectedPercentageChanged { get; set; }
+
+    private async Task SelectPercentage(double percentage)
+    {
+        await SelectedPercentageChanged.InvokeAsync(percentage);
+    }
+}

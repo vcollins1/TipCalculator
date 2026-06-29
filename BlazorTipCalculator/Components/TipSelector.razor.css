@@ -1,0 +1,11 @@
+.tip-selector__title {
+    color: #5E7A7D;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.tip-selector__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
