@@ -12,6 +12,9 @@ body {
 header {
    display: flex;
     justify-content: center;
+}
+
+.logo {
     margin-top: 50px;
     margin-bottom: 40px;
 }
@@ -19,11 +22,27 @@ header {
 .tip-calculator {
     display:grid;
     gap: 30px;
-    width: 375px;
+    max-width: 920px;
     background-color: #fff;
     padding: 32px;
     border-radius: 25px 25px 0 0;
     margin-inline:auto;
+}
+
+@media screen and (min-width: 920px) {
+    .tip-calculator {
+        grid-template-columns: 1fr 1fr;
+        border-radius: 25px;
+    }
+    
+    .tip-data {
+        display: grid;
+        gap: 40px;
+    }
+    
+    .logo {
+        margin: 163px auto 88px;
+    }
 }
 
 

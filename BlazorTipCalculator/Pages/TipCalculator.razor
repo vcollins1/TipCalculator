@@ -9,12 +9,15 @@
 
 <main class="content">
     <div class="tip-calculator">
-        <TipInput LabelText="Bill" LabelImg="img/icon-dollar.svg" @bind-Value="BillAmount"/>
-        <TipSelector @bind-SelectedPercentage="TipPercentage" />
-        <TipInput LabelText="Number of People" LabelImg="img/icon-person.svg" @bind-Value="NumberOfPeople"/>
-        <TipDisplay 
+        <section class="tip-data">
+            <TipInput LabelText="Bill" LabelImg="img/icon-dollar.svg" @bind-Value="BillAmount"/>
+            <TipSelector @bind-SelectedPercentage="TipPercentage"/>
+            <TipInput LabelText="Number of People" LabelImg="img/icon-person.svg" @bind-Value="NumberOfPeople"/>
+        </section>
+        
+        <TipDisplay
             TipPerPerson="TipPerPerson"
-            TotalTip="TotalTip" 
+            TotalTip="TotalTip"
             OnReset="@(ResetInputs)"/>
     </div>
 </main>
