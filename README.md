@@ -97,6 +97,17 @@ Then open:
 http://localhost:5181
 ```
 
+## Deployment
+
+This project includes a GitHub Actions workflow for deploying the Blazor WebAssembly build output to Netlify. The workflow installs the .NET 10 SDK, publishes the app, and deploys the generated `publish/wwwroot` folder.
+
+Add these secrets to the GitHub repository before running the workflow:
+
+- `NETLIFY_AUTH_TOKEN`
+- `NETLIFY_SITE_ID`
+
+If the Netlify site is connected directly to the GitHub repository, disable Netlify's automatic builds for this site or it may still try to build with Netlify's default .NET SDK. GitHub Actions should be the deployment source for the .NET 10 version of this project.
+
 ## What I Learned
 
 This project was a good opportunity to rebuild a Frontend Mentor JavaScript challenge in Blazor. The calculator logic is handled through component parameters and event callbacks, keeping the form inputs, percentage selector, and result display split into focused Razor components.
